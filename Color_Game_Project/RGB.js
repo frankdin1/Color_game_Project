@@ -1,5 +1,6 @@
 var squares = document.querySelectorAll(".square");
 var colorDisplay = document.querySelector("#colorDisplay")
+var resultDisplay = document.querySelector("#resultDisplay")
 var rgb = [];
 function randomColor(){
 	var red = [];
@@ -17,7 +18,17 @@ function randomColor(){
 
 var pickedColor = randomColor();
 colorDisplay.innerHTML = pickedColor
-console.log(pickedColor)
+//console.log(pickedColor)
 for (var i = 0; i < squares.length; i++){
 	squares[i].style.backgroundColor = rgb[i];
+	squares[i].addEventListener("click", function(){
+		var clickedColor = this.style.backgroundColor;
+		if (clickedColor === pickedColor){
+			resultDisplay.innerHTML = "Correct";
+		}
+		else{
+			resultDisplay.innerHTML = "Try Again!!";
+		}	
+	})
 }
+
