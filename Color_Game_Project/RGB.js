@@ -1,3 +1,5 @@
+var numSquares = 6
+var colors = randomColorArr(numSquares)
 var squares = document.querySelectorAll(".square");
 var colorDisplay = document.querySelector("#colorDisplay");
 var resultDisplay = document.querySelector("#resultDisplay");
@@ -5,13 +7,14 @@ var newColors = document.querySelector("#newColors");
 var titleBar1 = document.querySelector("#title-bar-1");
 var easyMode = document.querySelector("#easy");
 var hardMode = document.querySelector("#hard");
-var colors = randomColorArr(6)
+
 hard.classList.add("selected");
 
 easyMode.addEventListener("click", function(){
+	numSquares = 3;
 	hard.classList.remove("selected");
 	easy.classList.add("selected");
-	colors = randomColorArr(3);
+	colors = randomColorArr(numSquares);
 	pickedColor = pickColor();
 	colorDisplay.innerHTML = pickedColor;
 	for (var i = 0; i < squares.length; i++){
@@ -25,14 +28,15 @@ easyMode.addEventListener("click", function(){
 });
 
 hardMode.addEventListener("click", function(){
+	numSquares = 6
 	easy.classList.remove("selected");
 	hard.classList.add("selected");
-	colors = randomColorArr(6);
+	colors = randomColorArr(numSquares);
 	pickedColor = pickColor();
 	colorDisplay.innerHTML = pickedColor;
 	for (var i = 0; i < squares.length; i++){
 		squares[i].style.display = "block";
-			squares[i].style.backgroundColor = colors[i];
+		squares[i].style.backgroundColor = colors[i];
 		}
 });
 
@@ -69,8 +73,9 @@ titleBar1.style.backgroundColor = "blue";
 newColors.addEventListener("click", function(){
 	newColors.innerHTML = "New Colors";
 	titleBar1.style.backgroundColor = "blue";
-	var pickedColor = pickColor();
-	var colors = randomColorArr(6);
+	colors = randomColorArr(numSquares);
+	pickedColor = pickColor();
+	
 	//console.log("value of picedColor inside reset event listener: "+pickedColor);
 	colorDisplay.innerHTML = pickedColor
 	for (var i = 0; i < squares.length; i++){
