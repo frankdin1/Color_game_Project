@@ -25,9 +25,14 @@ for (var i = 0; i < squares.length; i++){
 		var clickedColor = this.style.backgroundColor;
 		if (clickedColor === pickedColor){
 			resultDisplay.innerHTML = "Correct";
+			for (var i = 0; i < squares.length; i++){
+			squares[i].style.backgroundColor = pickedColor;
+			}
+
 		}
 		else{
 			resultDisplay.innerHTML = "Try Again!!";
+			this.style.backgroundColor = "#232323";
 		}	
 	})
 }
