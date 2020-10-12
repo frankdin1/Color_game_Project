@@ -24,7 +24,7 @@ h1{
 	width:100%;
 	height:40px;
 	margin-top:-22px;
-	background-color:blue;
+	background-color:#232323;
 }
 
 #title-bar-2{
@@ -38,6 +38,10 @@ h1{
 
 #resultDisplay{
 	padding:0 80px;
+}
+
+.selected{
+	background-color:blue;
 }
 /*.title-bar-2-miniDiv{
 	float:left;
