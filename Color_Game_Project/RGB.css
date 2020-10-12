@@ -1,37 +1,40 @@
 body{
 	background-color:#232323;
+	margin:0;
+	font-family:"Montserrat", "Avenir";
 }
-
+/*making margin of body 0 removes white space from sides*/
 .square{
 	width:30%;
 	margin:1.66%;
 	background:white;
 	float:left;
 	padding-bottom:30%;/*padding bottom/top adds space to the squares*/
+	border-radius: 10%;
+	transition: background-color 0.7s;/*this transition code won't work in all browsers this way*/
+	-webkit-transition: background-color 0.7s;/*webkit is a safari engine that provides support to safari search engine*/
+	-moz-transition: background-color 0.7s;/*moz (short for mozilla provides support for mozilla search engines*/
 }
 
 #container{
 	max-width:600px;
-	margin:0 auto;
+	margin:20px auto;
 }
 
 h1{
 	color:white;
 	text-align: center;
-}
-
-#title-bar-1{
-	width:100%;
-	height:40px;
-	margin-top:-22px;
-	background-color:#232323;
+	background-color: steelblue;
+	margin:0;
+	font-weight: normal;
+	text-transform: uppercase;
+	line-height: 1.1;
+	padding:20px 0;/*20px top and bottom and 0 left and right*/
 }
 
 #title-bar-2{
 	width:100%;
-	height:10px;
-	border-bottom:20px;
-	padding-bottom:10px;
+	height:20px;
 	background-color:white;
 	text-align: center;
 }
@@ -41,12 +44,28 @@ h1{
 }
 
 .selected{
-	background-color:blue;
-}
-/*.title-bar-2-miniDiv{
-	float:left;
+	color:white;
+	background-color:steelblue;
 }
 
-#resultDisplayDiv{
-	text-align: center;
-}*/
+#colorDisplay{
+	font-size: 200%;/*this is 200% of the h1 fint size*/
+}
+
+button {
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	height: 100%;
+	font-weight:700;
+	color: steelblue;
+	font-size:inherit;
+	transition: all 0.5s;
+	-webkit-transition: all 0.7s;/*webkit is a safari engine that provides support to safari search engine*/
+	-moz-transition: all 0.7s;
+}
+
+button:hover{
+	color:white;
+	background-color:steelblue;
+}
