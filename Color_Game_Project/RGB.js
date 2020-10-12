@@ -1,10 +1,10 @@
 var squares = document.querySelectorAll(".square");
-
+var rgb = [];
 function randomColor(){
 	var red = [];
 	var green = [];
 	var blue = [];
-	var rgb = [];
+	
 	for (var i = 0; i < squares.length; i++){
 		red[i] = Math.floor(Math.random()*255)
 		green[i] = Math.floor(Math.random()*256)
@@ -15,4 +15,7 @@ function randomColor(){
 }
 
 var pickedColor = randomColor();
-console.log(pickedColor)
+//console.log(pickedColor)
+for (var i = 0; i < squares.length; i++){
+	squares[i].style.backgroundColor = rgb[i];
+}
