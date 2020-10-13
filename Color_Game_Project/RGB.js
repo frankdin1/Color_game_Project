@@ -1,23 +1,12 @@
-var numSquares = 6
+var numSquares = 3;
 var colors = randomColorArr(numSquares)
+
 var squares = document.querySelectorAll(".square");
 var colorDisplay = document.querySelector("#colorDisplay");
 var resultDisplay = document.querySelector("#resultDisplay");
 var resetBtn = document.querySelector("#reset");
 var h1 = document.querySelector("h1");
 var gameMode = document.querySelectorAll(".gameMode");
-
-for(var i = 0; i < gameMode.length; i++){
-	gameMode[i].addEventListener("click", function(){
-		for(var i = 0; i < gameMode.length; i++){
-			gameMode[i].classList.remove("selected");
-			this.classList.add("selected");
-		}
-		this.textContent === "Easy" ? numSquares = 3: numSquares = 6;
-		reset();
-		
-	})
-}
 
 function reset(){
 	resetBtn.innerHTML = "New Colors";
@@ -27,16 +16,7 @@ function reset(){
 	pickedColor = pickColor();
 	
 	colorDisplay.innerHTML = pickedColor;
-	for (var i = 0; i < squares.length; i++){
-		if (colors[i]){
-			squares[i].style.display = "block";
-			squares[i].style.backgroundColor = colors[i];
-		}
-		else{
-			squares[i].style.display = "none";
-		}
-		
-	}
+	easyMode();
 }
 
 function randomColorArr(num) {
@@ -61,6 +41,42 @@ function randomColor(){
 function pickColor() {
 	var random = Math.floor(Math.random() * colors.length);
 	return colors[random];
+}
+
+function easyMode(){
+	for (var i = 0; i < squares.length; i++){
+		if (colors[i]){
+				squares[i].style.display = "block";
+				squares[i].style.backgroundColor = colors[i];
+		}
+		else{
+				squares[i].style.display = "none";
+		}
+	}
+}
+
+easyMode();
+
+
+for(var i = 0; i < gameMode.length; i++){
+	gameMode[i].addEventListener("click", function(){
+		for(var i = 0; i < gameMode.length; i++){
+			gameMode[i].classList.remove("selected");
+			this.classList.add("selected");
+		}
+
+		if (this.textContent === "Easy"){
+			numSquares = 3;
+		}
+		else if(this.textContent === "Medium"){
+			numSquares = 6;
+		}
+		else{
+			numSquares = 9;
+		}
+		reset();
+		
+	})
 }
 
 var pickedColor = pickColor();
